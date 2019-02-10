@@ -35,12 +35,11 @@ class ProductTreeNode {
 // SoftwareSpendReporter helps IT departments make sense of their
 // software spend. It's a console application that reads in software spend data and outputs a report
 // summarizing that data.
-// To run the app, run "java SoftwareSpendReporter" from the command line and enter the input file path
 public class SoftwareSpendReporter {
     
     // spendReporter takes in a tree, a company name, a product name and the spend as parameters and store the product
     // into the tree then returns the updated tree
-    static TreeMap<String, CompanyTreeNode> spendReporter(TreeMap<String, CompanyTreeNode> tree, String companyName, String productName, int productAmount) {
+    static TreeMap<String, CompanyTreeNode> spendReporter(TreeMap<String, CompanyTreeNode> tree, String companyName, String productName, int productAmount) throws FileNotFoundException {
         if (!tree.containsKey((companyName))){
             TreeMap<String, ProductTreeNode> productsList = new TreeMap<String, ProductTreeNode>(); //empty list for products
             CompanyTreeNode company = new CompanyTreeNode(companyName, productsList, productAmount);
